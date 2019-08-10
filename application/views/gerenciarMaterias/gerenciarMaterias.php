@@ -14,7 +14,7 @@
       <!-- Atividades -->
       <?php $this->load->view('gerenciarMaterias/parcial/atividades_modal') ?>
       <div class="modal fade" id="atividadesModal" tabindex="-1" role="">
-        <?php $this->load->view('gerenciarMaterias/parcial/add_ausencia_modal') ?>
+        <?php $this->load->view('gerenciarMaterias/parcial/add_atividades_modal') ?>
       </div>
       <!-- Notas -->
       <?php $this->load->view('gerenciarMaterias/parcial/notas_modal') ?>

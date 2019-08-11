@@ -13,7 +13,7 @@
           </ul>
           <ul class="nav nav-tabs pull-right" data-tabs="tabs">
             <li class="nav-item">
-              <a class="nav-link" href="#profile" data-toggle="modal" data-target="#loginModal">
+              <a class="nav-link" href="conteudos">
                 <i class="material-icons">add_circle</i>
                 <div class="ripple-container"></div>
               </a>
@@ -25,7 +25,7 @@
     <div class="card-body">
       <div class="tab-content">
         <div class="tab-pane active" id="profile">
-          <table class="table table-hover" id="mytable">
+          <table class="table table-hover" id="conteudos">
             <thead class="text-primary">
               <th>Nome</th>
               <th>Dificuldade</th>

@@ -6,9 +6,12 @@
     </div>
     <div class="row">
       <!-- Listagem conteudos -->
-      <?php $this->load->view('gerenciarMaterias/parcial/conteudos_modal') ?>
+      <?php $this->load->view('conteudos/conteudos_modal') ?>
       <!-- Lista de presença -->
       <?php $this->load->view('gerenciarMaterias/parcial/lista_presenca_modal') ?>
+      <div class="modal fade" id="listaPresencaModal" tabindex="-1" role="">
+        <?php $this->load->view('gerenciarMaterias/parcial/add_ausencia_modal') ?>
+      </div>
     </div>
     <div class="row">
       <!-- Atividades -->
@@ -29,7 +32,7 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-    $('#mytable, #listaPresenca').DataTable({
+    $('#conteudos, #notas, #listaPresenca, #atividades').DataTable({
       "displayLength": "5",
       "language": {
             "sProcessing":   "A processar...",

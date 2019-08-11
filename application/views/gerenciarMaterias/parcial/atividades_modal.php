@@ -25,7 +25,7 @@
     <div class="card-body">
       <div class="tab-content">
         <div class="tab-pane active" id="profile">
-          <table class="table table-hover" id="mytable">
+          <table class="table table-hover" id="atividades">
             <thead class="text-primary">
               <th>Nome</th>
               <th>Status</th>

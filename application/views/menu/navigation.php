@@ -2,6 +2,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
+            <a href="" class="pull-right"><i class="material-icons">reply</i></a>
             <a class="navbar-brand"><?php echo $title['page'] ?></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">

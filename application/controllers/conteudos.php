@@ -21,30 +21,24 @@ class Conteudos extends MY_Controller {
 		$this->load->view('conteudos/adicionarConteudo', $data);
 	}
 
-	// public function adicionar(){
-	// 	if(!$this->input->post()){
-	// 		$data = [
-	// 			'title'=>[
-	// 				'menu' => 'Materias',
-	// 				'page' => 'Adicionar'
-	// 			],
-	// 		];
-	// 		$this->load->view('areaDeEstudo/adicionar', $data);
-	// 	}else{
-	// 		$post = (object)$this->input->post();
+	public function adicionar(){
+		echo "<pre>";
+		echo trim($this->input->post()['editor']);
+		exit;
+			$post = (object)$this->input->post();
 
-	// 		$data = [ 
-	// 			'nome' => $post->nome,
-	// 			'semestre' => $post->semestre,
-	// 			'prof' => $post->prof,
-	// 			'data_inclusao' => strtotime(date('Y-m-d H:i:s')),
-	// 			'data_alteracao' => strtotime(date('Y-m-d H:i:s'))
-	// 		];
+			$data = [ 
+				'nome' => $post->nome,
+				'semestre' => $post->semestre,
+				'prof' => $post->prof,
+				'data_inclusao' => strtotime(date('Y-m-d H:i:s')),
+				'data_alteracao' => strtotime(date('Y-m-d H:i:s'))
+			];
 
-	// 		$this->areaDeEstudo_model->insert($data);
-	// 		redirect('areaDeEstudo');
-	// 	}
-	// }
+			$this->areaDeEstudo_model->insert($data);
+			redirect('materia');
+		
+	}
 
 	// public function editar(){
 	// 	if(!$this->input->post()){

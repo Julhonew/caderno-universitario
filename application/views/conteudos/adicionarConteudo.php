@@ -49,7 +49,7 @@
 			                  	<div class="col-md-4">
 			                    	<div class="form-group">
 			                     		<label class="text">Data</label>
-			                      		<input name="nome"  type="date" class="form-control" required>
+			                      		<input name="data"  type="date" class="form-control" required>
 			                    	</div>
 			                  	</div>
 

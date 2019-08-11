@@ -6,7 +6,7 @@ class GerenciarMaterias extends MY_Controller {
 	function __construct(){
 		parent::__construct();
 		date_default_timezone_set('America/Sao_Paulo');
-		// $this->load->model('areaDeEstudo_model');
+		$this->load->model('conteudo_model');
 		$this->load->library('form_validation');
 		$this->load->helper(['url', 'form']);
 	}
@@ -17,7 +17,7 @@ class GerenciarMaterias extends MY_Controller {
 				'menu' => 'Materias',
 				'page' => 'Gerenciar materia'
 			],
-			// 'materias' => $this->materias_model->get()
+			'conteudos' => $this->conteudo_model->get()
 		];
 		$this->load->view('gerenciarMaterias/gerenciarMaterias', $data);
 	}

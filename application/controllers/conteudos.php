@@ -6,7 +6,7 @@ class Conteudos extends MY_Controller {
 	function __construct(){
 		parent::__construct();
 		date_default_timezone_set('America/Sao_Paulo');
-		// $this->load->model('areaDeEstudo_model');
+		$this->load->model('conteudo_model');
 		$this->load->library('form_validation');
 		$this->load->helper(['url', 'form']);
 	}
@@ -16,28 +16,27 @@ class Conteudos extends MY_Controller {
 			'title'=>[
 				'menu' => 'Materias',
 				'page' => 'Adicionar conteudo'
-			]
+			],
+			'url-back' => $_SERVER['HTTP_REFERER']
 		];
 		$this->load->view('conteudos/adicionarConteudo', $data);
 	}
 
 	public function adicionar(){
-		echo "<pre>";
-		echo trim($this->input->post()['editor']);
-		exit;
-			$post = (object)$this->input->post();
+		$post = (object)$this->input->post();
 
-			$data = [ 
-				'nome' => $post->nome,
-				'semestre' => $post->semestre,
-				'prof' => $post->prof,
-				'data_inclusao' => strtotime(date('Y-m-d H:i:s')),
-				'data_alteracao' => strtotime(date('Y-m-d H:i:s'))
-			];
+		$data = [ 
+			'nome' 			 => $post->nome,
+			'revisar' 		 => $post->revisar,
+			'data' 			 => strtotime($post->data .' '. date('H:i:s')),
+			'dificuldade'    => $post->dificuldade,
+			'conteudo' 		 => $post->conteudo,
+			'data_inclusao'  => time(),
+			'data_alteracao' => time()
+		];
 
-			$this->areaDeEstudo_model->insert($data);
-			redirect('materia');
-		
+		$this->conteudo_model->insert($data);
+		redirect('gerenciarMaterias');
 	}
 
 	// public function editar(){
@@ -86,8 +85,8 @@ class Conteudos extends MY_Controller {
 		
 	// }
 
-	// public function excluir($id){
-	// 	$this->areaDeEstudo_model->delete($id);
-	// 	redirect('areaDeEstudo');
-	// }
+	public function excluir($id){
+		$this->conteudo_model->delete($id);
+		redirect('gerenciarMaterias');
+	}
 }

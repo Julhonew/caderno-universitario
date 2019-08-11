@@ -6,7 +6,7 @@
     </div>
     <div class="row">
       <!-- Listagem conteudos -->
-      <?php $this->load->view('conteudos/conteudos_modal') ?>
+      <?php $this->load->view('conteudos/conteudos_modal', $conteudos) ?>
       <!-- Lista de presença -->
       <?php $this->load->view('gerenciarMaterias/parcial/lista_presenca_modal') ?>
       <div class="modal fade" id="listaPresencaModal" tabindex="-1" role="">

@@ -1,3 +1,11 @@
+<?php 
+
+  // echo "<pre>";
+  // var_dump($conteudos);
+  // exit;
+  
+?>
+
 <div class="col-lg-6 col-md-12">
   <div class="card">
     <div class="card-header card-header-tabs card-header-primary">
@@ -34,34 +42,22 @@
               <th>Ações</th>
             </thead>
             <tbody>
-              <tr>
-                <td>Fila</td>
-                <td>Dificil</td>
-                <td>A revisar</td>
-                <td>07/08/2019</td>
-                <td class="td-actions text-right">
-                  <a href="materias/editar?>"><button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
-                    <i class="material-icons">edit</i>
-                  </button></a>
-                  <a href="materias/editar?>"><button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                    <i class="material-icons">close</i>
-                  </button></a>
-                </td>
-              </tr>
-              <tr>
-                <td>Pilha</td>
-                <td>Facil</td>
-                <td>Revisado</td>
-                <td>07/08/2019</td>
-                <td class="td-actions text-right">
-                  <a href="materias/editar?>"><button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
-                    <i class="material-icons">edit</i>
-                  </button></a>
-                  <a href="materias/editar?>"><button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                    <i class="material-icons">close</i>
-                  </button></a>
-                </td>
-              </tr>
+              <?php foreach ($conteudos as $conteudo) { ?>
+                <tr>
+                  <td><?php echo $conteudo->nome ?></td>
+                  <td><?php echo $conteudo->dificuldade ?></td>
+                  <td><?php echo $conteudo->revisar ?></td>
+                  <td><?php echo $conteudo->data ?></td>
+                  <td class="td-actions text-right">
+                    <a href="conteudos/editar/<?php echo $conteudo->id ?>"><button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
+                      <i class="material-icons">edit</i>
+                    </button></a>
+                    <a href="conteudos/excluir/<?php echo $conteudo->id ?>"><button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
+                      <i class="material-icons">close</i>
+                    </button></a>
+                  </td>
+                </tr>
+              <?php } ?>
             </tbody>
           </table>
         </div>

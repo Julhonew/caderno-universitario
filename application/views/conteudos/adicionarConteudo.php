@@ -1,9 +1,4 @@
-<?php 
-	
-	// var_dump($id);
-	// exit;
-
-$this->load->view('menu/header', $title) ?>
+<?php $this->load->view('menu/header', $title) ?>
 
 <div class="content">
 	<div class="container-fluid">
@@ -16,7 +11,7 @@ $this->load->view('menu/header', $title) ?>
 					</div>
 					<div class="card-body">
 						<form action="conteudos/adicionar" method="POST">
-							<input type="hidden" name="id" value="<?php echo $id ?>">
+							<input type="hidden" name="mat_id" value="<?php echo $mat_id ?>">
 							<div class="row">
 			                  	<div class="col-md-4">
 			                    	<div class="form-group">
@@ -51,14 +46,13 @@ $this->load->view('menu/header', $title) ?>
 			                </div>
 
 			                <div class="row">
+
 			                  	<div class="col-md-4">
 			                    	<div class="form-group">
 			                     		<label class="text">Data</label>
 			                      		<input name="data"  type="date" class="form-control" required>
 			                    	</div>
-			                  	</div>
-
-			                  	
+			                  	</div>  	
 
 			                  	<div class="col-md-2 col-lg-6">
 			                    	<div class="form-group">
@@ -98,7 +92,7 @@ $this->load->view('menu/header', $title) ?>
 							    </div>
 			                </div>
 
-		                 	<button type="submit" class="btn btn-primary mt-3 form-control">Cadastrar</button>
+		                 	<button id="enviar" type="button" class="btn btn-primary mt-3 form-control">Cadastrar</button>
 			                <div class="clearfix"></div>
 						</form>
 					</div>
@@ -107,5 +101,26 @@ $this->load->view('menu/header', $title) ?>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$('#enviar').click(function submitAjax(){
+		$.ajax({
+			method: "POST",
+			url: "http://localhost/ci/caderno-universitario/conteudos/adicionar/23",
+			data: { mat_id: $('[name=mat_id]').val(),
+					nome: $('[name=nome]').val(),
+				    data: $('[name=data]').val(), 
+					revisar: $('#revisar').val(), 
+					dificuldade: $('[name=dificuldade]').val(), 
+					conteudo: $('[name=conteudo]').val() 
+				}
+		})
+		.done(function( response ) {
+			if(response){
+				$(location).attr('href', 'http://localhost/ci/caderno-universitario/gerenciarMaterias/dashboard/'+$('[name=mat_id]').val());
+			}
+		});
+	});
+</script>
 
 <?php $this->load->view('menu/footer') ?>

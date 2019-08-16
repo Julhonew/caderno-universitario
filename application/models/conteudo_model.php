@@ -52,6 +52,7 @@ class conteudo_model extends CI_Model {
 
 	public function insert($data){
 		$this->db->insert('conteudos',$data);
+		return true;
 	}
 
 	public function update($id, $data){

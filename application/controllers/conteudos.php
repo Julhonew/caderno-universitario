@@ -19,14 +19,14 @@ class Conteudos extends MY_Controller {
 					'page' => 'Adicionar conteudo',
 					'urlBack' => $_SERVER['HTTP_REFERER']	
 				],
-				'id'   => $this->uri->segment(3),
+				'mat_id'   => $this->uri->segment(3),
 			];
 			$this->load->view('conteudos/adicionarConteudo', $data);
 		}else{
 			$post = (object)$this->input->post();
 
 			$data = [ 
-				'mat_id' 		 => $post->id,
+				'mat_id' 		 => $post->mat_id,
 				'nome' 			 => $post->nome,
 				'revisar' 		 => $post->revisar,
 				'data' 			 => strtotime($post->data .' '. date('H:i:s')),
@@ -36,8 +36,7 @@ class Conteudos extends MY_Controller {
 				'data_alteracao' => time()
 			];
 
-			$this->conteudo_model->insert($data);
-			redirect('gerenciarMaterias/dashboard/'.$post->id);
+			echo $this->conteudo_model->insert($data);
 		}
 	}
 

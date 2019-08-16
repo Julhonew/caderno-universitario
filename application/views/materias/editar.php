@@ -51,7 +51,7 @@
 			                    	</div>
 			                  	</div>
 			                </div>
-			                <button type="submit" class="btn btn-primary">Cadastrar</button>
+			                <button type="submit" class="btn btn-primary">Salvar</button>
 			                <div class="clearfix"></div>
 		                </form>
            		 	</div>

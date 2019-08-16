@@ -6,23 +6,23 @@
     </div>
     <div class="row">
       <!-- Listagem conteudos -->
-      <?php $this->load->view('conteudos/conteudos_modal', $conteudos) ?>
+      <?php $this->load->view('conteudos/conteudos_modal', [$conteudos, $materia_id]) ?>
       <!-- Lista de presença -->
-      <?php $this->load->view('gerenciarMaterias/parcial/lista_presenca_modal') ?>
+      <?php $this->load->view('listaPresenca/lista_presenca_modal') ?>
       <div class="modal fade" id="listaPresencaModal" tabindex="-1" role="">
-        <?php $this->load->view('gerenciarMaterias/parcial/add_ausencia_modal') ?>
+        <?php $this->load->view('listaPresenca/add_ausencia_modal') ?>
       </div>
     </div>
     <div class="row">
       <!-- Atividades -->
-      <?php $this->load->view('gerenciarMaterias/parcial/atividades_modal') ?>
+      <?php $this->load->view('atividades/atividades_modal') ?>
       <div class="modal fade" id="atividadesModal" tabindex="-1" role="">
-        <?php $this->load->view('gerenciarMaterias/parcial/add_atividades_modal') ?>
+        <?php $this->load->view('atividades/add_atividades_modal') ?>
       </div>
       <!-- Notas -->
-      <?php $this->load->view('gerenciarMaterias/parcial/notas_modal') ?>
+      <?php $this->load->view('notas/notas_modal') ?>
       <div class="modal fade" id="notasModal" tabindex="-1" role="">
-        <?php $this->load->view('gerenciarMaterias/parcial/add_notas_modal') ?>
+        <?php $this->load->view('notas/add_notas_modal') ?>
       </div>
     </div>
   </div>

@@ -11,82 +11,86 @@ class Conteudos extends MY_Controller {
 		$this->load->helper(['url', 'form']);
 	}
 
-	public function index(){
-		$data = [
-			'title'=>[
-				'menu' => 'Materias',
-				'page' => 'Adicionar conteudo'
-			],
-			'url-back' => $_SERVER['HTTP_REFERER']
-		];
-		$this->load->view('conteudos/adicionarConteudo', $data);
-	}
-
 	public function adicionar(){
-		$post = (object)$this->input->post();
+		if(!$this->input->post()){
+			$data = [
+				'title'=>[
+					'menu' => 'Materias',
+					'page' => 'Adicionar conteudo',
+					'urlBack' => $_SERVER['HTTP_REFERER']	
+				],
+				'id'   => $this->uri->segment(3),
+			];
+			$this->load->view('conteudos/adicionarConteudo', $data);
+		}else{
+			$post = (object)$this->input->post();
 
-		$data = [ 
-			'nome' 			 => $post->nome,
-			'revisar' 		 => $post->revisar,
-			'data' 			 => strtotime($post->data .' '. date('H:i:s')),
-			'dificuldade'    => $post->dificuldade,
-			'conteudo' 		 => $post->conteudo,
-			'data_inclusao'  => time(),
-			'data_alteracao' => time()
-		];
+			$data = [ 
+				'mat_id' 		 => $post->id,
+				'nome' 			 => $post->nome,
+				'revisar' 		 => $post->revisar,
+				'data' 			 => strtotime($post->data .' '. date('H:i:s')),
+				'dificuldade'    => $post->dificuldade,
+				'conteudo' 		 => $post->conteudo,
+				'data_inclusao'  => time(),
+				'data_alteracao' => time()
+			];
 
-		$this->conteudo_model->insert($data);
-		redirect('gerenciarMaterias');
+			$this->conteudo_model->insert($data);
+			redirect('gerenciarMaterias/dashboard/'.$post->id);
+		}
 	}
 
-	// public function editar(){
-	// 	if(!$this->input->post()){
-	// 		$data = [
-	// 			'title'=>[
-	// 				'menu' => 'areaDeEstudo',
-	// 				'page' => 'Editar'
-	// 			],
-	// 		];
-	// 		$data['materia'] = $this->areaDeEstudo_model->get();
-	// 		$this->load->view('areaDeEstudo/editar', $data);
-	// 	}else{
+	public function editar(){
+		if(!$this->input->post()){
+			$data = [
+				'title'=>[
+					'menu' 	  => 'areaDeEstudo',
+					'page' 	  => 'Editar',
+					'urlBack' => $_SERVER['HTTP_REFERER']
+				],
+				'conteudo' 	  => $this->conteudo_model->getById($this->uri->segment(3)) 
+			];
+			$this->load->view('conteudos/editarConteudo', $data);
+		}else{
 
-	// 		$this->form_validation->set_rules('nome', 'Nome', 'required|trim', 
-	// 										   ['required' => '|O campo %s é obrigatorio']
-	// 										);
-	// 		$this->form_validation->set_rules('prof', 'Professor', 'required|trim', ['required' => '|O campo %s é obrigatorio']);
+			$this->form_validation->set_rules('nome', 'Nome', 'required|trim', 
+											   ['required' => '|O campo %s é obrigatorio']
+											);
+			$this->form_validation->set_rules('prof', 'Professor', 'required|trim', ['required' => '|O campo %s é obrigatorio']);
 
-	// 		if($this->form_validation->run()){
-	// 			$post = (object)$this->input->post();
+			if($this->form_validation->run()){
+				$post = (object)$this->input->post();
 
-	// 			$data = [
-	// 				'nome' => trim($post->nome),
-	// 				'semestre' => $post->semestre,
-	// 				'prof' => trim($post->prof),
-	// 				'data_alteracao' => strtotime(date('Y-m-d H:i:s'))
-	// 			];
+				$data = [
+					'nome' => trim($post->nome),
+					'semestre' => $post->semestre,
+					'prof' => trim($post->prof),
+					'data_alteracao' => strtotime(date('Y-m-d H:i:s'))
+				];
 
-	// 			// $this->session->set_flashdata('msg', 'success');
-	// 			redirect('areaDeEstudo');
-	// 		}else{
-	// 			$erros = explode('|', validation_errors());
-	// 			array_shift($erros);
-	// 			$data = [
-	// 				'title'=>[
-	// 					'menu' => 'areaDeEstudo',
-	// 					'page' => 'Editar'
-	// 				],
-	// 				'erros' => $erros
-	// 			];
-	//             $this->load->view('areaDeEstudo/editar', $data);
-	// 		}
+				// $this->session->set_flashdata('msg', 'success');
+				redirect('areaDeEstudo');
+			}else{
+				$erros = explode('|', validation_errors());
+				array_shift($erros);
+				$data = [
+					'title'=>[
+						'menu' => 'areaDeEstudo',
+						'page' => 'Editar',
+						'urlBack' => $_SERVER['HTTP_REFERER']
+					],
+					'erros' => $erros
+				];
+	            $this->load->view('areaDeEstudo/editar', $data);
+			}
 			
-	// 	}
+		}
 		
-	// }
+	}
 
 	public function excluir($id){
 		$this->conteudo_model->delete($id);
-		redirect('gerenciarMaterias');
+		redirect('gerenciarMaterias/dashboard/'.$post->id);
 	}
 }

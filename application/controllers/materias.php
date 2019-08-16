@@ -12,14 +12,12 @@ class Materias extends MY_Controller {
 	}
 
 	public function index(){
-		// $msg = $this->session->flashdata('msg') ? true : false;
 		$data = [
 			'title'=>[
 				'menu' => 'Materias',
 				'page' => 'Listagem'
 			],
 			'materias' => $this->materias_model->get(),
-			// 'success'  => $msg
 		];
 		$this->load->view('materias/materias', $data);
 	}
@@ -29,7 +27,8 @@ class Materias extends MY_Controller {
 			$data = [
 				'title'=>[
 					'menu' => 'Materias',
-					'page' => 'Adicionar'
+					'page' => 'Adicionar',
+					'urlBack' => $_SERVER['HTTP_REFERER']
 				],
 			];
 			$this->load->view('materias/adicionar', $data);
@@ -54,7 +53,8 @@ class Materias extends MY_Controller {
 			$data = [
 				'title'=>[
 					'menu' => 'Materias',
-					'page' => 'Editar'
+					'page' => 'Editar',
+					'urlBack' => $_SERVER['HTTP_REFERER']
 				],
 				'materia' => $this->materias_model->getById($this->uri->segment(3))
 			];
@@ -86,7 +86,8 @@ class Materias extends MY_Controller {
 				$data = [
 					'title'=>[
 						'menu' => 'Materias',
-						'page' => 'Editar'
+						'page' => 'Editar',
+						'urlBack' => $_SERVER['HTTP_REFERER']
 					],
 					'erros' => $erros
 				];
@@ -106,7 +107,8 @@ class Materias extends MY_Controller {
 		$data = [
 			'title'=>[
 				'menu' => 'Materias',
-				'page' => 'Gerenciar Materia'
+				'page' => 'Gerenciar Materia',
+				'urlBack' => $_SERVER['HTTP_REFERER']
 			],
 		];
 		$this->load->view('materias/gerenciarMateria', $data);

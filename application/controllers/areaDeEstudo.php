@@ -27,7 +27,8 @@ class AreaDeEstudo extends MY_Controller {
 			$data = [
 				'title'=>[
 					'menu' => 'areaDeEstudo',
-					'page' => 'Adicionar'
+					'page' => 'Adicionar',
+					'urlBack' => $_SERVER['HTTP_REFERER']
 				],
 			];
 			$this->load->view('areaDeEstudo/adicionar', $data);
@@ -52,7 +53,8 @@ class AreaDeEstudo extends MY_Controller {
 			$data = [
 				'title'=>[
 					'menu' => 'areaDeEstudo',
-					'page' => 'Editar'
+					'page' => 'Editar',
+					'urlBack' => $_SERVER['HTTP_REFERER']
 				],
 			];
 			$data['materia'] = $this->areaDeEstudo_model->get();
@@ -82,7 +84,8 @@ class AreaDeEstudo extends MY_Controller {
 				$data = [
 					'title'=>[
 						'menu' => 'areaDeEstudo',
-						'page' => 'Editar'
+						'page' => 'Editar',
+						'urlBack' => $_SERVER['HTTP_REFERER']
 					],
 					'erros' => $erros
 				];

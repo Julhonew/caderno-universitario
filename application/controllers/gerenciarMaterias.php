@@ -11,13 +11,16 @@ class GerenciarMaterias extends MY_Controller {
 		$this->load->helper(['url', 'form']);
 	}
 
-	public function index(){
+	public function dashboard(){
+		$mat_id = $this->uri->segment(3);
 		$data = [
 			'title'=>[
 				'menu' => 'Materias',
-				'page' => 'Gerenciar materia'
+				'page' => 'Gerenciar materia',
+				'urlBack' => base_url('materias')
 			],
-			'conteudos' => $this->conteudo_model->get()
+			'conteudos' => $this->conteudo_model->getByMat($mat_id),
+			'materia_id'=> $mat_id
 		];
 		$this->load->view('gerenciarMaterias/gerenciarMaterias', $data);
 	}
@@ -27,7 +30,8 @@ class GerenciarMaterias extends MY_Controller {
 			$data = [
 				'title'=>[
 					'menu' => 'areaDeEstudo',
-					'page' => 'Adicionar'
+					'page' => 'Adicionar',
+					'urlBack' => $_SERVER['HTTP_REFERER']
 				],
 			];
 			$this->load->view('areaDeEstudo/adicionar', $data);
@@ -52,7 +56,8 @@ class GerenciarMaterias extends MY_Controller {
 			$data = [
 				'title'=>[
 					'menu' => 'areaDeEstudo',
-					'page' => 'Editar'
+					'page' => 'Editar',
+					'urlBack' => $_SERVER['HTTP_REFERER']
 				],
 			];
 			$data['materia'] = $this->areaDeEstudo_model->get();
@@ -82,7 +87,8 @@ class GerenciarMaterias extends MY_Controller {
 				$data = [
 					'title'=>[
 						'menu' => 'areaDeEstudo',
-						'page' => 'Editar'
+						'page' => 'Editar',
+						'urlBack' => $_SERVER['HTTP_REFERER']
 					],
 					'erros' => $erros
 				];

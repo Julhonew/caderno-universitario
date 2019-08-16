@@ -21,7 +21,13 @@
 	                  			Nome
 	                		</th>
 	                		<th class="td-center">
-	                  		Professor
+	                  			Professor
+	                		</th>
+	                		<th class="td-center">
+	                  			Media
+	                		</th>
+	                		<th class="td-center">
+	                  			Faltas
 	                		</th>
 	                		<th class="td-center">
 	                  			Ações
@@ -29,7 +35,7 @@
 	              		</thead>
 	              		<tbody>
 	              			<?php foreach ($materias as $materia) { ?>
-	                    	<tr onclick="location.href = '<?php echo base_url('gerenciarMaterias')?>'" style="cursor: pointer;">
+	                    	<tr onclick="location.href = '<?php echo base_url('GerenciarMaterias/dashboard/').$materia->id ?>'" style="cursor: pointer;">
 	                          	<td class="td-center">
 	                            	<?php echo $materia->semestre?>º
 	                          	</td>
@@ -38,6 +44,12 @@
 	                          	</td>
 	                          	<td class="td-center">
 	                           		<?php echo $materia->prof ?>
+	                         	</td>
+	                         	<td class="td-center">
+	                           		-
+	                         	</td>
+	                         	<td class="td-center">
+	                           		0
 	                         	</td>
 	                          	<td class="td-actions td-center">
                               		<a href="materias/editar/<?php echo $materia->id ?>"><button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">

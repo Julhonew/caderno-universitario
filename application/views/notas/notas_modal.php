@@ -31,7 +31,7 @@
               <th>Nota</th>
               <th>Status</th>
               <th>Data</th>
-              <th>Ações</th>
+              <th id="acoes-notas">Ações</th>
             </thead>
             <tbody>
               <tr>

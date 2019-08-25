@@ -31,37 +31,25 @@
               <th>Status</th>
               <th>Nota</th>
               <th>Data</th>
-              <th>Ações</th>
+              <th id="acoes-atividades">Ações</th>
             </thead>
             <tbody>
-              <tr>
-                <td>Sistema web com PHP, HTML, CSS, JS</td>
-                <td>Entregue</td>
-                <td>10,0</td>
-                <td>07/08/2019</td>
-                <td class="td-actions text-right">
-                  <a href="materias/editar?>"><button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
-                    <i class="material-icons">edit</i>
-                  </button></a>
-                  <a href="materias/editar?>"><button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                    <i class="material-icons">close</i>
-                  </button></a>
-                </td>
-              </tr>
-              <tr>
-                <td>Calculadora web</td>
-                <td>Entregue</td>
-                <td>10,0</td>
-                <td>08/08/2019</td>
-                <td class="td-actions text-right">
-                  <a href="materias/editar?>"><button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
-                    <i class="material-icons">edit</i>
-                  </button></a>
-                  <a href="materias/editar?>"><button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
-                    <i class="material-icons">close</i>
-                  </button></a>
-                </td>
-              </tr>
+              <?php foreach($atividades as $atividade){ ?>
+                <tr>
+                  <td><?php echo $atividade->nome?></td>
+                  <td><?php echo $atividade->status ?></td>
+                  <td><?php echo $atividade->nota ?></td>
+                  <td><?php echo date('d/m/Y', $atividade->data) ?></td>
+                  <td class="td-actions text-right">
+                    <a href="materias/editar/<?php echo $atividade->id ?>?>"><button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
+                      <i class="material-icons">edit</i>
+                    </button></a>
+                    <a href="materias/editar/<?php echo $atividade->id ?>?>"><button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
+                      <i class="material-icons">close</i>
+                    </button></a>
+                  </td>
+                </tr>
+              <?php } ?>
             </tbody>
           </table>
         </div>

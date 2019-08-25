@@ -6,22 +6,48 @@ class GerenciarMaterias extends MY_Controller {
 	function __construct(){
 		parent::__construct();
 		date_default_timezone_set('America/Sao_Paulo');
-		$this->load->model('conteudo_model');
+		$this->load->model(['conteudos_model', 
+							 'listaPresenca_model',
+							 'atividades_model',
+							 'notas_model']);
 		$this->load->library('form_validation');
 		$this->load->helper(['url', 'form']);
 	}
 
-	public function dashboard(){
-		$mat_id = $this->uri->segment(3);
+	public function dashboard() {
+		$mat_id = is_numeric($this->uri->segment(3)) ? $this->uri->segment(3) : redirect('materias') ;
+		$conteudos = $this->conteudos_model->getByMat($mat_id);
+
+		// echo "<pre>";
+		// var_dump(is_numeric(2));
+		// exit;
+
 		$data = [
+			'modulos' => [
+				'materia_id'=> $mat_id,
+				'conteudos' 	=> $conteudos,
+				// 'listaPresenca' => $this->listaPresenca_model->getByMat($mat_id),
+				'atividades' 	=> $this->atividades_model->getByMat($mat_id),
+				// 'notas' 		=> $this->notas_model->getByMat($mat_id),
+			],
 			'title'=>[
 				'menu' => 'Materias',
 				'page' => 'Gerenciar materia',
 				'urlBack' => base_url('materias')
 			],
-			'conteudos' => $this->conteudo_model->getByMat($mat_id),
-			'materia_id'=> $mat_id
+			'count' =>[
+				'conteudos' 	=> count($conteudos),
+				'revisar' 		=> $this->count($conteudos, true),
+				'faltas'		=> '2',
+				'atividades'	=> '2/2'
+			],
 		];
+		
+			
+		// echo "<pre>";
+		// var_dump($data);
+		// exit;
+
 		$this->load->view('gerenciarMaterias/gerenciarMaterias', $data);
 	}
 
@@ -102,5 +128,25 @@ class GerenciarMaterias extends MY_Controller {
 	public function excluir($id){
 		$this->areaDeEstudo_model->delete($id);
 		redirect('areaDeEstudo');
+	}
+
+	public function count($arrResults = [], $divisor = false) {
+		$count = $revisados = $revisar = 0;
+
+		foreach($arrResults as $result){
+			if($divisor){
+				if($result->revisar == 1){
+					$revisar++; 
+				}else if ($result->revisar == 3){
+					$revisados++;
+				}
+				$count = "$revisados/$revisar";
+			}else{
+				$count++; 
+			}
+		}
+
+		return $count;
+
 	}
 }

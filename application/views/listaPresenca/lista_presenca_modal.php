@@ -36,7 +36,7 @@
                 <th>Motivo</th>
                 <th>Status</th>
                 <th>Data</th>
-                <th>Ações</th>
+                <th id="acoes-listaPresenca">Ações</th>
               </thead>
               <tbody>
                 <tr>

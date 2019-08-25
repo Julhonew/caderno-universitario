@@ -1,7 +1,6 @@
        <!-- ck editor -->
   <script type="text/javascript" src="<?php echo base_url('assets\script\ckeditor\ckeditor.js')?>"></script>
   <script type="text/javascript" src="<?php echo base_url('assets\script\javascript.js')?>"></script>
-   
        <!--   Core JS Files   -->
   <script src="<?php echo base_url("assets/js/core/jquery.min.js") ?>"></script>
   <script src="<?php echo base_url("assets/js/core/popper.min.js") ?>"></script>
@@ -11,8 +10,6 @@
   <script src="<?php echo base_url("assets/js/plugins/moment.min.js") ?>"></script>
   <!--  Plugin for Sweet Alert -->
   <script src="<?php echo base_url("assets/js/plugins/sweetalert2.js") ?>"></script>
-  <!-- Forms Validations Plugin -->
-  <script src="<?php echo base_url("assets/js/plugins/jquery.validate.min.js") ?>"></script>
   <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
   <script src="<?php echo base_url("assets/js/plugins/jquery.bootstrap-wizard.js") ?>"></script>
   <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
@@ -41,9 +38,20 @@
   <script src="<?php echo base_url("assets/js/material-dashboard.js?v=2.1.1") ?>" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="<?php echo base_url("assets/demo/demo.js")?>"></script>
+  <!-- jquery mask -->
+  <script src="<?php echo base_url("assets/js/plugins/jquery.mask.js") ?>"></script>
+  <!-- jquery Validation -->
+  <!-- <script src="<?php echo base_url("assets/js/plugins/additional-methods.min.js") ?>"></script> -->
+  <script src="<?php echo base_url("assets/js/plugins/jquery.validate.min.js") ?>"></script> 
+  <script src="<?php echo base_url("assets/js/plugins/localization/messages_pt_BR.js") ?>"></script> 
+
   <script>
     $(document).ready(function() {
       $().ready(function() {
+        // INTERNO
+        $('#acoes-conteudos, #acoes-listaPresenca, #acoes-notas, #acoes-atividades').removeClass().off('click');
+        
+        // CREATIVE TIM
         $sidebar = $('.sidebar');
 
         $sidebar_img_container = $sidebar.find('.sidebar-background');

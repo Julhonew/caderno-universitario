@@ -25,7 +25,7 @@
   <link href="<?php echo base_url("assets/css/material-dashboard.css") ?> " rel="stylesheet" />
   <!-- Jquery datatables -->  
   <link href="<?php echo base_url("assets/css/jquery.dataTables.min.css") ?> " rel="stylesheet" />  
-  <script type="text/javascript" charset="utf8" src="<?php echo base_url("assets/js/plugins/jquery.dataTables.js")?>"></script>
+  <!-- <script type="text/javascript" charset="utf8" src="<?php echo base_url("assets/js/plugins/jquery.dataTables.js")?>"></script> -->
   <script type="text/javascript" charset="utf8" src="<?php echo base_url("assets/js/plugins/jquery-3.4.1.min.js")?>"></script>
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"> -->
 </head>

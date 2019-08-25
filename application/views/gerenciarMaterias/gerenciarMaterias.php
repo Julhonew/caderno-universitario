@@ -1,12 +1,13 @@
-<?php $this->load->view('menu/header', $title) ?>
+<?php $this->load->view('menu/header', $title);?>
 <div class="content">
   <div class="container-fluid">
     <div class="row">
-      <?php $this->load->view('gerenciarMaterias/parcial/cards_modal') ?>
+      <!-- CARDS -->
+      <?php $this->load->view('gerenciarMaterias/parcial/cards_modal', $count) ?>
     </div>
     <div class="row">
       <!-- Listagem conteudos -->
-      <?php $this->load->view('conteudos/conteudos_modal', [$conteudos, $materia_id]) ?>
+      <?php $this->load->view('conteudos/conteudos_modal', $modulos) ?>
       <!-- Lista de presença -->
       <?php $this->load->view('listaPresenca/lista_presenca_modal') ?>
       <div class="modal fade" id="listaPresencaModal" tabindex="-1" role="">
@@ -17,7 +18,7 @@
       <!-- Atividades -->
       <?php $this->load->view('atividades/atividades_modal') ?>
       <div class="modal fade" id="atividadesModal" tabindex="-1" role="">
-        <?php $this->load->view('atividades/add_atividades_modal') ?>
+        <?php $this->load->view('atividades/add_atividades_modal', $modulos) ?>
       </div>
       <!-- Notas -->
       <?php $this->load->view('notas/notas_modal') ?>

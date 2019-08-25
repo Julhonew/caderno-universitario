@@ -1,4 +1,8 @@
-<?php?>
+<?php
+  //  echo "<pre>";
+  //  var_dump($conteudos);
+  //  exit;
+?>
 <div class="col-lg-6 col-md-12">
   <div class="card">
     <div class="card-header card-header-tabs card-header-primary">
@@ -32,7 +36,7 @@
               <th>Dificuldade</th>
               <th>Status</th>
               <th>Data</th>
-              <th>Ações</th>
+              <th id="acoes-conteudos">Ações</th>
             </thead>
             <tbody>
               <?php foreach ($conteudos as $conteudo) { ?>

@@ -6,7 +6,7 @@ class Conteudos extends MY_Controller {
 	function __construct(){
 		parent::__construct();
 		date_default_timezone_set('America/Sao_Paulo');
-		$this->load->model('conteudo_model');
+		$this->load->model('conteudos_model');
 		$this->load->library('form_validation');
 		$this->load->helper(['url', 'form']);
 	}
@@ -36,7 +36,9 @@ class Conteudos extends MY_Controller {
 				'data_alteracao' => time()
 			];
 
-			echo $this->conteudo_model->insert($data);
+			$this->conteudos_model->insert($data);
+
+			redirect('gerenciarMaterias/dashboard/'.$post->mat_id);
 		}
 	}
 
@@ -48,7 +50,7 @@ class Conteudos extends MY_Controller {
 					'page' 	  => 'Editar',
 					'urlBack' => $_SERVER['HTTP_REFERER']
 				],
-				'conteudo' 	  => $this->conteudo_model->getById($this->uri->segment(3)) 
+				'conteudo' 	  => $this->conteudos_model->getById($this->uri->segment(3)) 
 			];
 			$this->load->view('conteudos/editarConteudo', $data);
 		}else{
@@ -89,7 +91,7 @@ class Conteudos extends MY_Controller {
 	}
 
 	public function excluir($id){
-		$this->conteudo_model->delete($id);
-		redirect('gerenciarMaterias/dashboard/'.$post->id);
+		$this->conteudos_model->delete($id);
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 }

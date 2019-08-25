@@ -88,11 +88,11 @@
 
 			                <div class="row">
 			                	<div class="col-md-12">
-							        <textarea rows="100" name="conteudo" id="editor"></textarea>
+							        <textarea rows="100" name="conteudo" id="editor" placeholder="Digite aqui o conteudo"></textarea>
 							    </div>
 			                </div>
 
-		                 	<button id="enviar" type="button" class="btn btn-primary mt-3 form-control">Cadastrar</button>
+		                 	<button id="enviar" type="submit" class="btn btn-primary mt-3 form-control">Cadastrar</button>
 			                <div class="clearfix"></div>
 						</form>
 					</div>
@@ -103,24 +103,8 @@
 </div>
 
 <script type="text/javascript">
-	$('#enviar').click(function submitAjax(){
-		$.ajax({
-			method: "POST",
-			url: "http://localhost/ci/caderno-universitario/conteudos/adicionar/23",
-			data: { mat_id: $('[name=mat_id]').val(),
-					nome: $('[name=nome]').val(),
-				    data: $('[name=data]').val(), 
-					revisar: $('#revisar').val(), 
-					dificuldade: $('[name=dificuldade]').val(), 
-					conteudo: $('[name=conteudo]').val() 
-				}
-		})
-		.done(function( response ) {
-			if(response){
-				$(location).attr('href', 'http://localhost/ci/caderno-universitario/gerenciarMaterias/dashboard/'+$('[name=mat_id]').val());
-			}
-		});
-	});
+
+	
 </script>
 
 <?php $this->load->view('menu/footer') ?>

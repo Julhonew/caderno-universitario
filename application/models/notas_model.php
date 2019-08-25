@@ -1,26 +1,26 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class conteudo_model extends CI_Model {
+class notas_model extends CI_Model {
 
 	public function __construct(){
 		parent::__construct();
 	}
 
 	public function get(){
-		$query = $this->db->get('conteudos');
+		$query = $this->db->get('notas');
 		return $query->result();
 	}
 
 	public function getById($id){
 		$query = $this->db->where('id', $id) 
- 						  ->get('conteudos');
+ 						  ->get('notas');
 		return $query->first_row();
 	}
 
 	public function getByMat($id){
 		$query = $this->db->where('mat_id', $id) 
- 						  ->get('conteudos');
+ 						  ->get('notas');
 		return $query->result();
 	}
 
@@ -40,7 +40,7 @@ class conteudo_model extends CI_Model {
 	// }
 
 	public function verifDuplicidade($data){
-		$query = $this->db->get_where('conteudos', ['nome' => $data['nome'],
+		$query = $this->db->get_where('notas', ['nome' => $data['nome'],
 												 'descricao' => $data['descricao'],
 												 'data' => $data['data']]);
 		if($query->num_rows() > 0){
@@ -51,18 +51,18 @@ class conteudo_model extends CI_Model {
 	}
 
 	public function insert($data){
-		$this->db->insert('conteudos',$data);
+		$this->db->insert('notas',$data);
 		return true;
 	}
 
 	public function update($id, $data){
 		$this->db->where('id',$id)
-	             ->update('conteudos', $data);
+	             ->update('notas', $data);
 	}
 
 	public function delete($id){
 		$this->db->where('id', $id)
-				 ->delete('conteudos');
+				 ->delete('notas');
 	}
 
 	public function verifStatus(){

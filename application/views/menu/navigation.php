@@ -66,3 +66,4 @@
           </div>
         </div>
       </nav>
+<?php $this->load->view('parcial/success'); ?>

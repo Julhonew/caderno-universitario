@@ -18,6 +18,13 @@
           </ul>
           <ul class="nav nav-tabs pull-right" data-tabs="tabs">
             <li class="nav-item">
+              <a class="nav-link">
+                <i class="material-icons">info</i> 
+                <div class="ripple-container"></div>
+                revisar <?php echo $revisar ?>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="<?php echo base_url('conteudos/adicionar/').$materia_id?>">
                 <i class="material-icons">add_circle</i>
                 <div class="ripple-container"></div>
@@ -43,13 +50,13 @@
                 <tr>
                   <td><?php echo $conteudo->nome ?></td>
                   <td><?php echo $conteudo->dificuldade ?></td>
-                  <td><?php echo $conteudo->revisar ?></td>
+                  <td><?php echo $conteudo->status ?></td>
                   <td><?php echo date('d/m/Y', $conteudo->data) ?></td>
                   <td class="td-actions text-right">
-                    <a href="<?php echo base_url('conteudos/editar/').$conteudo->id ?>"><button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
+                    <a href="<?php echo base_url('conteudos/editar/').$conteudo->id ?>"><button type="button" rel="tooltip" class="btn btn-primary btn-link btn-sm">
                       <i class="material-icons">edit</i>
                     </button></a>
-                    <a href="<?php echo base_url('conteudos/excluir/').$conteudo->id ?>"><button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
+                    <a href="<?php echo base_url('conteudos/excluir/').$conteudo->id ?>"><button type="button" rel="tooltip" class="btn btn-danger btn-link btn-sm">
                       <i class="material-icons">close</i>
                     </button></a>
                   </td>

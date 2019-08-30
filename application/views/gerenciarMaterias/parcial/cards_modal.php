@@ -16,18 +16,34 @@
 </div>
 <div class="col-lg-3 col-md-6 col-sm-6">
   <div class="card card-stats">
-    <div class="card-header card-header-warning card-header-icon">
+    <div class="card-header card-header-info card-header-icon">
       <div class="card-icon">
-        <i class="material-icons">content_copy</i>
+        <i class="material-icons">ballot</i>
       </div>
-      <p class="card-category">Conteudos a serem revisados</p>
-      <h3 id="revisar" class="card-title"><?php echo $revisar?>
+      <p class="card-category">Atividades</p>
+      <h3 class="card-title"><?php echo $atividades ?></h3>
+    </div>
+    <div class="card-footer">
+      <div class="stats">
+        <i class="material-icons">update</i> Atividades entregues
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-6">
+  <div class="card card-stats">
+    <div class="card-header card-header-primary card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons">flag</i>
+      </div>
+      <p class="card-category">Média</p>
+      <h3 id="revisar" class="card-title">10,00
       </h3>
     </div>
     <div class="card-footer">
       <div class="stats">
-        <i id="icon-revisar" class="material-icons text-danger">warning</i> 
-        <span id="legenda-revisar">Há conteudos para revisão</span>
+        <i id="icon-revisar" class="material-icons">layers</i> 
+        <span id="legenda-revisar">Essa é sua média até o momento</span>
       </div>
     </div>
   </div>
@@ -48,26 +64,10 @@
     </div>
   </div>
 </div>
-<div class="col-lg-3 col-md-6 col-sm-6">
-  <div class="card card-stats">
-    <div class="card-header card-header-info card-header-icon">
-      <div class="card-icon">
-        <i class="material-icons">ballot</i>
-      </div>
-      <p class="card-category">Atividades</p>
-      <h3 class="card-title"><?php echo $atividades ?></h3>
-    </div>
-    <div class="card-footer">
-      <div class="stats">
-        <i class="material-icons">update</i> Atividades entregues
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
 <script type="text/javascript">
 
-  $
 
 </script>

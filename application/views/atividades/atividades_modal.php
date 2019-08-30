@@ -41,10 +41,10 @@
                   <td><?php echo $atividade->nota ?></td>
                   <td><?php echo date('d/m/Y', $atividade->data) ?></td>
                   <td class="td-actions text-right">
-                    <a href="materias/editar/<?php echo $atividade->id ?>?>"><button type="button" rel="tooltip" title="Editar" class="btn btn-primary btn-link btn-sm">
+                    <a href="materias/editar/<?php echo $atividade->id ?>?>"><button type="button" rel="tooltip" class="btn btn-primary btn-link btn-sm">
                       <i class="material-icons">edit</i>
                     </button></a>
-                    <a href="materias/editar/<?php echo $atividade->id ?>?>"><button type="button" rel="tooltip" title="Remover" class="btn btn-danger btn-link btn-sm">
+                    <a href="materias/editar/<?php echo $atividade->id ?>?>"><button type="button" rel="tooltip" class="btn btn-danger btn-link btn-sm">
                       <i class="material-icons">close</i>
                     </button></a>
                   </td>

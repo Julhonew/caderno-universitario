@@ -16,10 +16,11 @@ class GerenciarMaterias extends MY_Controller {
 
 	public function dashboard() {
 		$mat_id = is_numeric($this->uri->segment(3)) ? $this->uri->segment(3) : redirect('materias') ;
-		$conteudos = $this->conteudos_model->getByMat($mat_id);
-
+		$conteudos  = $this->conteudos_model->getByMat($mat_id);
+		$atividades = $this->atividades_model->getByMat($mat_id);
+		
 		// echo "<pre>";
-		// var_dump(is_numeric(2));
+		// var_dump($atividades);
 		// exit;
 
 		$data = [
@@ -27,7 +28,7 @@ class GerenciarMaterias extends MY_Controller {
 				'materia_id'=> $mat_id,
 				'conteudos' 	=> $conteudos,
 				// 'listaPresenca' => $this->listaPresenca_model->getByMat($mat_id),
-				'atividades' 	=> $this->atividades_model->getByMat($mat_id),
+				'atividades' 	=> $atividades,
 				// 'notas' 		=> $this->notas_model->getByMat($mat_id),
 			],
 			'title'=>[
@@ -39,13 +40,13 @@ class GerenciarMaterias extends MY_Controller {
 				'conteudos' 	=> count($conteudos),
 				'revisar' 		=> $this->count($conteudos, true),
 				'faltas'		=> '2',
-				'atividades'	=> '2/2'
+				'atividades'	=> $this->count($atividades, true)
 			],
 		];
 		
 			
 		// echo "<pre>";
-		// var_dump($data);
+		// var_dump($data['count']);
 		// exit;
 
 		$this->load->view('gerenciarMaterias/gerenciarMaterias', $data);
@@ -131,16 +132,17 @@ class GerenciarMaterias extends MY_Controller {
 	}
 
 	public function count($arrResults = [], $divisor = false) {
-		$count = $revisados = $revisar = 0;
+		$count = $item = $itens = 0;
 
 		foreach($arrResults as $result){
 			if($divisor){
-				if($result->revisar == 1){
-					$revisar++; 
-				}else if ($result->revisar == 3){
-					$revisados++;
+				if($result->status == 0){
+					$item++; 
+				}else if ($result->status == 1){
+					$itens++;
+					$item++; 
 				}
-				$count = "$revisados/$revisar";
+				$count = "$itens/$item";
 			}else{
 				$count++; 
 			}
@@ -150,3 +152,4 @@ class GerenciarMaterias extends MY_Controller {
 
 	}
 }
+

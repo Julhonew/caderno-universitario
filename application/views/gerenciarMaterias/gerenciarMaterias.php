@@ -43,7 +43,7 @@
             "sInfoEmpty":    "Mostrando de 0 até 0 de 0 registros",
             "sInfoFiltered": "(filtrado de _MAX_ registos no total)",
             "sInfoPostFix":  "",
-            "sSearch":       "Procurar:",
+            "sSearch":       "",
             "sUrl":          "",
             "oPaginate": {
                 "sFirst":    "Primeiro",
@@ -53,7 +53,11 @@
           }
         }
     });
-} );
+    
+    $('.dataTables_length').remove();
+    $('.dataTables_filter').children().children().addClass('form-control').attr('placeholder', 'Buscar');;
+
+});
 </script>
 
 <?php $this->load->view('menu/footer') ?>

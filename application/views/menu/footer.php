@@ -44,6 +44,8 @@
   <!-- <script src="<?php echo base_url("assets/js/plugins/additional-methods.min.js") ?>"></script> -->
   <script src="<?php echo base_url("assets/js/plugins/jquery.validate.min.js") ?>"></script> 
   <script src="<?php echo base_url("assets/js/plugins/localization/messages_pt_BR.js") ?>"></script> 
+  <!-- jquery ui -->
+  <script src="<?php echo base_url("assets/js/jquery-ui-1.12.1/jquery-ui.min.js") ?>"></script> 
 
   <script>
     $(document).ready(function() {

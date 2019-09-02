@@ -17,11 +17,11 @@
             </li>
           </ul>
           <ul class="nav nav-tabs pull-right" data-tabs="tabs">
-            <li class="nav-item">
+            <li class="nav-item" id="avisoRevisar">
               <a class="nav-link">
                 <i class="material-icons">info</i> 
                 <div class="ripple-container"></div>
-                revisar <?php echo $revisar ?>
+                revisar <span id="qntRevisar"><?php echo $revisar ?></span>
               </a>
             </li>
             <li class="nav-item">
@@ -53,7 +53,7 @@
                   <td><?php echo $conteudo->status ?></td>
                   <td><?php echo date('d/m/Y', $conteudo->data) ?></td>
                   <td class="td-actions text-right">
-                    <a href="<?php echo base_url('conteudos/editar/').$conteudo->id ?>"><button type="button" rel="tooltip" class="btn btn-primary btn-link btn-sm">
+                    <a href="<?php echo base_url('conteudos/editar/').$conteudo->id.'/'.$mat_id ?>"><button type="button" rel="tooltip" class="btn btn-primary btn-link btn-sm">
                       <i class="material-icons">edit</i>
                     </button></a>
                     <a href="<?php echo base_url('conteudos/excluir/').$conteudo->id ?>"><button type="button" rel="tooltip" class="btn btn-danger btn-link btn-sm">
@@ -69,3 +69,10 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    var qntRevisar = document.getElementById('qntRevisar').innerHTML.split('/');
+    if(qntRevisar.length == 1 || qntRevisar[0] >= qntRevisar[1]){
+      document.getElementById('avisoRevisar').remove();
+    } 
+</script>

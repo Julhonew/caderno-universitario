@@ -1,15 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class atividades_model extends CI_Model {
+class atividades_model extends MY_Model {
+
+	public $table = 'atividades';
 
 	public function __construct(){
 		parent::__construct();
-	}
-
-	public function get(){
-		$query = $this->db->get('atividades');
-		return $query->result();
 	}
 
 	public function getById($id){
@@ -33,21 +30,6 @@ class atividades_model extends CI_Model {
 		}
 		
 		return true;
-	}
-
-	public function insert($data){
-		$this->db->insert('atividades',$data);
-		return true;
-	}
-
-	public function update($id, $data){
-		$this->db->where('id',$id)
-	             ->update('atividades', $data);
-	}
-
-	public function delete($id){
-		$this->db->where('id', $id)
-				 ->delete('atividades');
 	}
 
 	public function verifStatus(){

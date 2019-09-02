@@ -24,21 +24,6 @@ class conteudos_model extends CI_Model {
 		return $query->result();
 	}
 
-	// public function getRealizados(){
-	// 	$results = $this->membros_model->selectAll();
-
-	// 	foreach ($results as $membro) {
-	// 		if(!$membro->dir_status){
-	// 			$membros[] = $membro;
-	// 		}
-	// 	}
-		
-	// 	if(isset($membros))
-	// 		return $membros;
-	// 	else
-	// 		return true;	
-	// }
-
 	public function verifDuplicidade($data){
 		$query = $this->db->get_where('conteudos', ['nome' => $data['nome'],
 												 'descricao' => $data['descricao'],

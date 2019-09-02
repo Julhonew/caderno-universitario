@@ -1,4 +1,8 @@
-<?php $this->load->view('menu/header', $title) ?>
+<?php 
+		// echo "<pre>";
+		// var_dump($id);
+		// exit;
+$this->load->view('menu/header', $title) ?>
 
 <div class="content">
 	<div class="container-fluid">
@@ -10,8 +14,9 @@
 						<p class="card-category">Cadastrou algo errado, ou esqueceu de alguma coisa?</p>
 					</div>
 					<div class="card-body">
-						<form action="conteudos/adicionar" method="POST">
-
+						<form action="conteudos/editar" method="POST">
+							<input type="hidden" name="id" value="<?php echo $id ?>">
+							<input type="hidden" name="mat_id" value="<?php echo $mat_id ?>">
 							<div class="row">
 			                  	<div class="col-md-4">
 			                    	<div class="form-group">
@@ -26,7 +31,7 @@
 			                    		<label class="mr-2">Revisar:</label>
 			                     		<div class="form-check form-check-radio form-check-inline">
 										  <label class="form-check-label">
-										    <input <?php echo $conteudo->revisar == 1 ? 'checked' : '' ?> class="form-check-input" type="radio" name="revisar" id="revisar" value="1"> Sim
+										    <input <?php echo $conteudo->status == 0 ? 'checked' : '' ?> class="form-check-input" type="radio" name="revisar" id="revisar" value="0"> Sim
 										    <span class="circle">
 										        <span class="check"></span>
 										    </span>
@@ -34,7 +39,7 @@
 										</div>
 										<div class="form-check form-check-radio form-check-inline">
 										  <label class="form-check-label">
-										    <input <?php echo $conteudo->revisar == 0 ? 'checked' : '' ?> class="form-check-input" type="radio" name="revisar" id="revisar" value="0"> Não
+										    <input <?php echo $conteudo->status == 1 ? 'checked' : '' ?> class="form-check-input" type="radio" name="revisar" id="revisar" value="1"> Não
 										    <span class="circle">
 										        <span class="check"></span>
 										    </span>
@@ -53,22 +58,20 @@
 			                    	</div>
 			                  	</div>
 
-			                  	
-
 			                  	<div class="col-md-2 col-lg-6">
 			                    	<div class="form-group">
 			                    		<label class="mr-2">Dificuldade:</label>
 			                     		<div class="form-check form-check-radio form-check-inline">
 										  <label class="form-check-label">
-										    <input <?php echo $conteudo->dificuldade == 1 ? 'checked' : '' ?> class="form-check-input" type="radio" name="dificuldade" id="dificuldade" value="1"> Facil
+										    <input <?php echo $conteudo->dificuldade == 1 ? 'checked' : '' ?>  class="form-check-input" type="radio" name="dificuldade" id="dificuldade" value="1"> Facil
 										    <span class="circle">
 										        <span class="check"></span>
 										    </span>
 										  </label>
 										</div>
 										<div class="form-check form-check-radio form-check-inline">
-										  <label <?php echo $conteudo->dificuldade == 2 ? 'checked' : '' ?> class="form-check-label">
-										    <input class="form-check-input" type="radio" name="dificuldade" id="dificuldade" value="2"> Mais ou menos
+										  <label class="form-check-label">
+										    <input <?php echo $conteudo->dificuldade == 2 ? 'checked' : '' ?> class="form-check-input" type="radio" name="dificuldade" id="dificuldade" value="2"> Mais ou menos
 										    <span class="circle">
 										        <span class="check"></span>
 										    </span>
@@ -89,13 +92,13 @@
 
 			                <div class="row">
 			                	<div class="col-md-12">
-							        <textarea rows="100" name="editor" id="editor">
+							        <textarea name="conteudo" id="editor" placeholder="Digite aqui o conteudo">
 							        	<?php echo $conteudo->conteudo ?>
 							        </textarea>
 							    </div>
 			                </div>
 
-		                 	<button type="submit" class="btn btn-primary mt-3 form-control">Cadastrar</button>
+		                 	<button type="submit" class="btn btn-primary mt-3 form-control">Salvar</button>
 			                <div class="clearfix"></div>
 						</form>
 					</div>

@@ -24,6 +24,7 @@ class GerenciarMaterias extends MY_Controller {
 		// exit;
 
 		$data = [
+			'mat_id' => $this->uri->segment(3),
 			'modulos' => [
 				'materia_id'=> $mat_id,
 				'conteudos' 	=> $conteudos,

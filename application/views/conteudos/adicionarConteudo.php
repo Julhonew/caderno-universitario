@@ -26,7 +26,7 @@
 			                    		<label class="mr-2">Revisar:</label>
 			                     		<div class="form-check form-check-radio form-check-inline">
 										  <label class="form-check-label">
-										    <input class="form-check-input" type="radio" name="revisar" id="revisar" value="1"> Sim
+										    <input class="form-check-input" type="radio" name="revisar" id="revisar" value="0"> Sim
 										    <span class="circle">
 										        <span class="check"></span>
 										    </span>
@@ -34,7 +34,7 @@
 										</div>
 										<div class="form-check form-check-radio form-check-inline">
 										  <label class="form-check-label">
-										    <input checked class="form-check-input" type="radio" name="revisar" id="revisar" value="0"> Não
+										    <input checked class="form-check-input" type="radio" name="revisar" id="revisar" value="1"> Não
 										    <span class="circle">
 										        <span class="check"></span>
 										    </span>

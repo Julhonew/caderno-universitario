@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Set-2019 às 15:37
+-- Generation Time: 07-Set-2019 às 16:17
 -- Versão do servidor: 10.1.37-MariaDB
 -- versão do PHP: 7.3.0
 
@@ -28,7 +28,6 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `atividades`
 --
 
-DROP TABLE IF EXISTS `atividades`;
 CREATE TABLE `atividades` (
   `id` int(11) NOT NULL,
   `mat_id` int(11) DEFAULT NULL,
@@ -40,11 +39,6 @@ CREATE TABLE `atividades` (
   `data_alteracao` int(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `atividades`
---
-
-TRUNCATE TABLE `atividades`;
 --
 -- Extraindo dados da tabela `atividades`
 --
@@ -61,7 +55,6 @@ INSERT INTO `atividades` (`id`, `mat_id`, `nome`, `status`, `data`, `nota`, `dat
 -- Estrutura da tabela `conteudos`
 --
 
-DROP TABLE IF EXISTS `conteudos`;
 CREATE TABLE `conteudos` (
   `id` int(11) NOT NULL,
   `mat_id` int(11) DEFAULT NULL,
@@ -75,11 +68,6 @@ CREATE TABLE `conteudos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Truncate table before insert `conteudos`
---
-
-TRUNCATE TABLE `conteudos`;
---
 -- Extraindo dados da tabela `conteudos`
 --
 
@@ -92,7 +80,6 @@ INSERT INTO `conteudos` (`id`, `mat_id`, `nome`, `status`, `data`, `dificuldade`
 -- Estrutura da tabela `materias`
 --
 
-DROP TABLE IF EXISTS `materias`;
 CREATE TABLE `materias` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
@@ -102,11 +89,6 @@ CREATE TABLE `materias` (
   `data_alteracao` int(12) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `materias`
---
-
-TRUNCATE TABLE `materias`;
 --
 -- Extraindo dados da tabela `materias`
 --
@@ -124,17 +106,11 @@ INSERT INTO `materias` (`id`, `nome`, `semestre`, `prof`, `data_inclusao`, `data
 -- Estrutura da tabela `status`
 --
 
-DROP TABLE IF EXISTS `status`;
 CREATE TABLE `status` (
   `id` int(11) NOT NULL,
   `nome` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `status`
---
-
-TRUNCATE TABLE `status`;
 --
 -- Extraindo dados da tabela `status`
 --

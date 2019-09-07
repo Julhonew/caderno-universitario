@@ -47,9 +47,7 @@
   </div>
 </div>
 <script type="text/javascript">
-$( function() {
-      $( "[name=data]" ).datepicker();
-    } );  
+
   $(document).ready(function(){
     
     jQuery.validator.addMethod("dateBR", function(value, element){

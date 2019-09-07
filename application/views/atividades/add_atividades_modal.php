@@ -25,7 +25,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="material-icons">calendar_today</i></div>
                 </div>
-                <input type="text" class="form-control datepicker" name="data" placeholder="Data de entrega" >
+                <input type="text" class="form-control" name="data" placeholder="Data de entrega" >
               </div>
             </div>
 
@@ -47,8 +47,11 @@
   </div>
 </div>
 <script type="text/javascript">
+$( function() {
+      $( "[name=data]" ).datepicker();
+    } );  
   $(document).ready(function(){
-
+    
     jQuery.validator.addMethod("dateBR", function(value, element){
       var data = value.split('/');
       const calendario = ['31','29','31','30','31','30','31','31','30','31','30','31'];
@@ -62,7 +65,7 @@
 
     }, "Insira uma data valida!");
   
-    $('[name=data]').mask("00/00/0000");
+    // $('[name=data]').mask("00/00/0000");
     $('[name=nota]').mask("00.00", {reverse: true});
 
     $('#form_atividades').validate({
@@ -70,12 +73,12 @@
         nome:{
           required: true
         },
-        data:{
-          dateBR: true,
-          required: true,
-          maxlength: 10,
-          minlength: 10
-        },
+        // data:{
+        //   dateBR: true,
+        //   required: true,
+        //   maxlength: 10,
+        //   minlength: 10
+        // },
         nota:{
           range: [0, 10]
         }

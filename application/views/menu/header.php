@@ -28,6 +28,12 @@
   <!-- <script type="text/javascript" charset="utf8" src="<?php echo base_url("assets/js/plugins/jquery.dataTables.js")?>"></script> -->
   <script type="text/javascript" charset="utf8" src="<?php echo base_url("assets/js/plugins/jquery-3.4.1.min.js")?>"></script>
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"> -->
+  <script src="<?php echo base_url("assets/js/jquery-ui-1.12.1/jquery-ui.min.js") ?>"></script> 
+  <script type="text/javascript">
+    $( function() {
+      $( "[name=data]" ).datepicker();
+    } );  
+  </script>
 </head>
 
 <body class="">

@@ -12,7 +12,15 @@ class Atividades extends MY_Controller {
 	}
 
 	public function adicionar(){
+		setlocale (LC_ALL, 'pt_BR');
 		$post = (object)$this->input->post();
+
+		$dataAtual = date();
+		$dataPost  = strtotime(date('Y-m-d', $post->data));
+		echo "<pre>";
+		var_dump($dataAtual);
+		// var_dump($dataPost);
+		exit;
 
 		$data = [ 
 			'mat_id' 		 => $this->uri->segment(3),

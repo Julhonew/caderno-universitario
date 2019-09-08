@@ -66,4 +66,4 @@
           </div>
         </div>
       </nav>
-<?php $this->load->view('parcial/success'); ?>
+<?php $this->load->view('parcial/notificacao'); ?>

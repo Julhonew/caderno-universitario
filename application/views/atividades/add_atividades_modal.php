@@ -49,7 +49,6 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
-    
     jQuery.validator.addMethod("dateBR", function(value, element){
       var data = value.split('/');
       const calendario = ['31','29','31','30','31','30','31','31','30','31','30','31'];
@@ -62,8 +61,12 @@
         return false;
 
     }, "Insira uma data valida!");
+
+    $( ".date" ).datepicker({
+      dateFormat: "dd-mm-yyyy"
+    });
   
-    // $('[name=data]').mask("00/00/0000");
+    $('[name=data]').mask("00/00/0000");
     $('[name=nota]').mask("00.00", {reverse: true});
 
     $('#form_atividades').validate({
@@ -71,12 +74,12 @@
         nome:{
           required: true
         },
-        // data:{
-        //   dateBR: true,
-        //   required: true,
-        //   maxlength: 10,
-        //   minlength: 10
-        // },
+        data:{
+          dateBR: true,
+          required: true,
+          maxlength: 10,
+          minlength: 10
+        },
         nota:{
           range: [0, 10]
         }

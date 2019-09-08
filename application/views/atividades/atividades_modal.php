@@ -37,14 +37,14 @@
               <?php foreach($atividades as $atividade){ ?>
                 <tr>
                   <td><?php echo $atividade->nome?></td>
-                  <td><?php echo $atividade->status ?></td>
+                  <td><?php echo $atividade->status_ref ?></td>
                   <td><?php echo $atividade->nota ?></td>
                   <td><?php echo date('d/m/Y', $atividade->data) ?></td>
                   <td class="td-actions text-right">
-                    <a href="materias/editar/<?php echo $atividade->id ?>?>"><button type="button" rel="tooltip" class="btn btn-primary btn-link btn-sm">
+                    <a href="<?php echo base_url('/atividades/editar/'.$atividade->id.'/'.$mat_id) ?>"><button type="button" rel="tooltip" class="btn btn-primary btn-link btn-sm">
                       <i class="material-icons">edit</i>
                     </button></a>
-                    <a href="materias/editar/<?php echo $atividade->id ?>?>"><button type="button" rel="tooltip" class="btn btn-danger btn-link btn-sm">
+                    <a href="<?php echo base_url('/atividades/excluir/'.$atividade->id.'/'.$mat_id) ?>"><button type="button" rel="tooltip" class="btn btn-danger btn-link btn-sm">
                       <i class="material-icons">close</i>
                     </button></a>
                   </td>

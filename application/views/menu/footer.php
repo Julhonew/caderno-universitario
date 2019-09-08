@@ -52,7 +52,7 @@
       $().ready(function() {
         // INTERNO
         $('#acoes-conteudos, #acoes-listaPresenca, #acoes-notas, #acoes-atividades').removeClass().off('click');
-        
+          
         // CREATIVE TIM
         $sidebar = $('.sidebar');
 

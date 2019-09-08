@@ -3,7 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class atividades_model extends MY_Model {
 
-	public $table = 'atividades';
+	protected $table = 'atividades';
+	protected $primaryKey = 'id';
 
 	public function __construct(){
 		parent::__construct();
@@ -16,15 +17,16 @@ class atividades_model extends MY_Model {
 	}
 
 	public function getByMat($id){
-		$query = $this->db->where('mat_id', $id) 
- 						  ->get('atividades');
+		$query = $this->db->join('status', 'status.id_status = '.$this->table.'.status')
+						   ->where('mat_id', $id) 
+ 						   ->get($this->table);
 		return $query->result();
 	}
 
 	public function verifDuplicidade($data){
-		$query = $this->db->get_where('atividades', ['nome' => $data['nome'],
-												 'descricao' => $data['descricao'],
-												 'data' => $data['data']]);
+		$query = $this->db->get_where('atividades', ['nome'      => $data['nome'],
+												     'descricao' => $data['descricao'],
+												     'data'      => $data['data']]);
 		if($query->num_rows() > 0){
 			return false;	
 		}

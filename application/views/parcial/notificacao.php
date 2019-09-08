@@ -16,11 +16,11 @@ if($notification && $notification['tipo'] == 'success'){ ?>
 <script type="text/javascript">
   $(document).ready(function(){
     $('#fechar').click(function(){
-        $('#notificacao').addClass('fadeOutUp');
-      setTimeout(function(){
-        $('#notificacao').remove();
-      }, 1000);
-    })
+          $('#notificacao').addClass('fadeOutUp');
+        setTimeout(function(){
+          $('#notificacao').remove();
+        }, 1000);
+      });
   });
 </script>
 

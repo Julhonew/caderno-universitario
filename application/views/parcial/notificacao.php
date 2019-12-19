@@ -21,6 +21,12 @@ if($notification && $notification['tipo'] == 'success'){ ?>
           $('#notificacao').remove();
         }, 1000);
       });
+    setTimeout(function(){
+      $('#notificacao').addClass('fadeOutUp');
+      setTimeout(function(){
+        $('#notificacao').remove();
+      }, 1000);
+    }, 5000);
   });
 </script>
 
